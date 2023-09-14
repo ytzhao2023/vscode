@@ -11,27 +11,29 @@ def run_game():
     # Initialize the pygame, settings and screen mode.
     pygame.init()
     ai_settings = Settings()
-    screen = pygame.display.set_mode((ai_settings.screen_width, ai_settings.screen_height))
+    screen = pygame.display.set_mode((ai_settings.screen_width, 
+        ai_settings.screen_height))
     pygame.display.set_caption("Alien Invasion")
     
-    # set a instance for storing the statistics
+    # Set a instance for storing the statistics.
     stats = GameStats(ai_settings)
 
-    # set a ship, a group of bullets, a group of aliens
+    # Set a ship, a group of bullets, a group of aliens.
     ship = Ship(ai_settings, screen)
     bullets = Group()
     aliens = Group()
 
-    # set a fleet of aliens
-    gf.create_fleet(ai_settings, screen, ship, aliens)
+    # Set a fleet of aliens.
+    gf.create_fleet(ai_settings, screen, ship, aliens, stats.level)
     
-    # start the main loop for the game
+    # Start the main loop for the game.
     while True:
         gf.check_events(ai_settings, screen, ship, bullets)
 
         if stats.game_active:
             ship.update()
-            gf.update_bullets(ai_settings, screen, ship, aliens, bullets)
+            gf.update_bullets(ai_settings, screen, ship, aliens, bullets, 
+                stats)
             gf.update_aliens(ai_settings, stats, screen, ship, aliens, bullets)
         
         gf.update_screen(ai_settings, screen, ship, aliens, bullets)
