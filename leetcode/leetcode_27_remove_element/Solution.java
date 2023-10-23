@@ -1,4 +1,4 @@
-package leetcode_27_removelement;
+package leetcode_27_remove_element;
 
 class Solution {
     public int removeElement(int[] nums, int val) {
