@@ -18,5 +18,6 @@ class Solution(object):
 s = Solution()
 nums_test = [0, 1, 2, 2, 4, 5]
 val_test = 2
-s.removeElement(nums_test, val_test)
+print(nums_test)
+print(s.removeElement(nums_test, val_test))
 print(nums_test)
