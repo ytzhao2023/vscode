@@ -37,9 +37,16 @@ class Solution(object):
             for j in range(1, n):
                 if obstacleGrid[i][j] == 0:
                     dp[i][j] = dp[i-1][j] + dp[i][j-1]
+
+        print("all the elements in dp list")
+        for i in range(m):
+            row_values = " ".join(str(dp[i][j]) for j in range(n))
+            print(row_values)
         
         return dp[m-1][n-1]
+    
+
         
 solution = Solution()
-result = solution.uniquePathsWithObstacles([[0]])
+result = solution.uniquePathsWithObstacles([[0,0,0],[0,1,0],[0,0,0]])
 print(result)
