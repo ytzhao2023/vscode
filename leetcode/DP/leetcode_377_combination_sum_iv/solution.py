@@ -13,6 +13,7 @@ class Solution(object):
             for j in range(len(nums)):
                 if i >= nums[j]:
                     dp[i] += dp[i-nums[j]]
+                    print(dp[i])
 
         return dp[target]
 
